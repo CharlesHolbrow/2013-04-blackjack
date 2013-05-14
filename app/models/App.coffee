@@ -18,3 +18,4 @@ class window.App extends Backbone.Model
       console.log 'You Loose'
     else if @get('dealerHand').scores()[0] < @get('playerHand').scores()[0]
       console.log 'You Win'
+      return 'You Win'

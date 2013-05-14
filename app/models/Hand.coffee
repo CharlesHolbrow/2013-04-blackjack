@@ -22,6 +22,6 @@ class window.Hand extends Backbone.Collection
 
   playTill16: ->
     @at(0).flip()
-    while @scores()[0] < 16
+    while @scores()[0] < 17
       @hit()
     @stand()
