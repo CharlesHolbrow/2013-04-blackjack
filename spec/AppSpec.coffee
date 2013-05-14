@@ -31,15 +31,5 @@ describe 'App', ->
       app.get('playerHand').push(new Card(ten.attributes))
       expect(app.compareHands()).toEqual 'win'
 
-  describe 'hit', ->
-    it "should call bust when score is over 21", ->
-      playerHand = app.get('playerHand')
-      .set([ten, new Card(ten.attributes), ace])
-      spyOn(playerHand, 'bust')
-      playerHand.hit()
-      expect(playerHand.bust).toHaveBeenCalled()
-
-
-
 
     #it "should call blackjack when score is exactly 21"

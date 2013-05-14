@@ -6,7 +6,7 @@ class window.App extends Backbone.Model
     @set 'playerHand', deck.dealPlayer()
     @set 'dealerHand', deck.dealDealer()
     @get('playerHand').on 'stand', ->
-      @get('dealerHand').playTill17()
+      @get('dealerHand').dealerPlay()
     ,@
     @get('dealerHand').on 'stand', ->
       @compareHands()
