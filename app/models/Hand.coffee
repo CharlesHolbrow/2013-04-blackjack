@@ -44,18 +44,3 @@ class window.Hand extends Backbone.Collection
       ++count
       if count > 10 then debugger;
     @stand()
-
-
-# while true
-# if @scores()[1]
-#   if @scores()[1] > 17 && < 22
-#     @stand();
-#     return
-#   else if @scores()[1] < 17
-#     @hit();
-#   else
-#     while @scores()[0] < 17
-#     @hit();
-
-#   else while@scores[0] < 17
-#   @hit 
