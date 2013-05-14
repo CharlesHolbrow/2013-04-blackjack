@@ -15,7 +15,8 @@ class window.App extends Backbone.Model
 
   compareHands: ->
     if @get('dealerHand').scores()[0] > @get('playerHand').scores()[0]
-      console.log 'You Loose'
+      console.log 'loose'
+      return 'loose'
     else if @get('dealerHand').scores()[0] < @get('playerHand').scores()[0]
       console.log 'You Win'
-      return 'You Win'
+      return 'win'

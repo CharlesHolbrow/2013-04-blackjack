@@ -16,7 +16,6 @@ describe 'App', ->
       rank: 2
       suit: 0
 
-
   describe 'compareHands', ->
     it "should declare the correct winner", ->
       app.get('dealerHand').pop()
