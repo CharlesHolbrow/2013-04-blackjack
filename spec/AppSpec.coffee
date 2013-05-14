@@ -36,9 +36,8 @@ describe 'App', ->
       playerHand = app.get('playerHand')
       .set([ten, new Card(ten.attributes), ace])
       spyOn(playerHand, 'bust')
-      debugger;
       playerHand.hit()
-      expect(playerHand.bust).not.toHaveBeenCalled()
+      expect(playerHand.bust).toHaveBeenCalled()
 
 
 
