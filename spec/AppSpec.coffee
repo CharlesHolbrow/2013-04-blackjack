@@ -16,6 +16,7 @@ describe 'App', ->
       rank: 2
       suit: 0
 
+
   describe 'compareHands', ->
     it "should declare the correct winner", ->
       app.get('dealerHand').pop()
@@ -25,4 +26,9 @@ describe 'App', ->
       app.get('playerHand').pop()
       app.get('playerHand').push(ten)
       app.get('playerHand').push(new Card(ten.attributes))
-      expect(app.compareHands()).toEqual 'You Win'
+      expect(app.compareHands()).toEqual 'win'
+
+  describe 'hit', ->
+    it "should call bust when score is over 21", ->
+
+    #it "should call blackjack when score is exactly 21"
