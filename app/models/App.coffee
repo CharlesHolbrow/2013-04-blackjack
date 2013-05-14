@@ -11,12 +11,20 @@ class window.App extends Backbone.Model
     @get('dealerHand').on 'stand', ->
       @compareHands()
     ,@
+    @set 'state', undefined
+    @get('playerHand').on 'bust', ->
+      @set 'state', 'lose'
+    , @
+    @get('dealerHand').on 'bust', ->
+      @set 'state', 'win'
+    , @
+
 
 
   compareHands: ->
     if @get('dealerHand').scores()[0] > @get('playerHand').scores()[0]
-      console.log 'loose'
-      return 'loose'
+      @set 'state', 'lose'
+      return 'lose'
     else if @get('dealerHand').scores()[0] < @get('playerHand').scores()[0]
-      console.log 'You Win'
+      @set 'state', 'win'
       return 'win'

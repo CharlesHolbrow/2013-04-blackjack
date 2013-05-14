@@ -44,3 +44,5 @@ describe 'Hand', ->
       spyOn(hand, 'bust')
       hand.hit()
       expect(hand.bust).toHaveBeenCalled()
+
+
