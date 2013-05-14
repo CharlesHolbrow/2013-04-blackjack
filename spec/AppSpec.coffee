@@ -4,6 +4,7 @@ describe 'App', ->
   three = null
   two = null
   ace = null
+  nine = null
 
   beforeEach ->
     app = new App()
@@ -19,17 +20,19 @@ describe 'App', ->
     ace = new Card
       rank: 1
       suit: 3
+    nine = new Card
+      rank: 9
+      suit: 0
 
   describe 'compareHands', ->
     it "should declare the correct winner", ->
-      app.get('dealerHand').pop()
-      app.get('dealerHand').pop()
       app.get('dealerHand').set([ten, two])
-      app.get('playerHand').pop()
-      app.get('playerHand').pop()
-      app.get('playerHand').push(ten)
-      app.get('playerHand').push(new Card(ten.attributes))
+      app.get('playerHand').set([ten, new Card(ten.attributes)])
       expect(app.compareHands()).toEqual 'win'
 
+    it "should declare the correct winner with an ace in a hand", ->
+      app.get('playerHand').set([ace, nine])
+      app.get('dealerHand').set([ten, nine])
+      expect(app.compareHands()).toEqual 'win'
 
     #it "should call blackjack when score is exactly 21"

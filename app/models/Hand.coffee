@@ -27,6 +27,30 @@ class window.Hand extends Backbone.Collection
 
   dealerPlay: ->
     @at(0).flip()
-    while @scores()[0] < 17
-      @hit()
+    score = 0
+    while true
+      score = @scores().reduce (memo, score)  ->
+        if score > memo and score < 22
+          return score
+        else
+          return memo
+      , 0
+      debugger;
+      if score < 17 then @hit()
+      else break
     @stand()
+
+
+# while true
+# if @scores()[1]
+#   if @scores()[1] > 17 && < 22
+#     @stand();
+#     return
+#   else if @scores()[1] < 17
+#     @hit();
+#   else
+#     while @scores()[0] < 17
+#     @hit();
+
+#   else while@scores[0] < 17
+#   @hit 

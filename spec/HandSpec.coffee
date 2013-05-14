@@ -32,6 +32,11 @@ describe 'Hand', ->
       hand.at(0).flip()
       hand.dealerPlay()
       expect(hand.length).toEqual 3
+    describe 'with and ace', ->
+      it 'should hit until score is 17 or more', ->
+        hand = new Hand([three, two, ace], deck, true)
+        hand.dealerPlay()
+        expect(hand.length).toBeGreaterThan(3)
 
   describe 'hit', ->
     it "should call bust when score is over 21", ->
