@@ -25,7 +25,7 @@ class window.Hand extends Backbone.Collection
     , 0
     if hasAce then [score, score + 10] else [score]
 
-  playTill16: ->
+  playTill17: ->
     @at(0).flip()
     while @scores()[0] < 17
       @hit()
