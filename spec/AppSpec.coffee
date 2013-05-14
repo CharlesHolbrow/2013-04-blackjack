@@ -3,6 +3,7 @@ describe 'App', ->
   ten = null
   three = null
   two = null
+  ace = null
 
   beforeEach ->
     app = new App()
@@ -15,6 +16,9 @@ describe 'App', ->
     two = new Card
       rank: 2
       suit: 0
+    ace = new Card
+      rank: 1
+      suit: 3
 
   describe 'compareHands', ->
     it "should declare the correct winner", ->
@@ -29,5 +33,14 @@ describe 'App', ->
 
   describe 'hit', ->
     it "should call bust when score is over 21", ->
+      playerHand = app.get('playerHand')
+      .set([ten, new Card(ten.attributes), ace])
+      spyOn(playerHand, 'bust')
+      debugger;
+      playerHand.hit()
+      expect(playerHand.bust).not.toHaveBeenCalled()
+
+
+
 
     #it "should call blackjack when score is exactly 21"

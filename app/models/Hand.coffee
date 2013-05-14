@@ -6,7 +6,7 @@ class window.Hand extends Backbone.Collection
 
   hit: ->
     newCard = @add(@deck.pop()).last()
-    if @scores[0] > 21 then @bust
+    if @scores()[0] > 21 then @bust()
     newCard
 
   bust: -> @trigger 'bust', @
