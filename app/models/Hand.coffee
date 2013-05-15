@@ -41,6 +41,4 @@ class window.Hand extends Backbone.Collection
       score = getScore @scores()
       if score < 17 then @hit()
       else break
-      ++count
-      if count > 10 then debugger;
     @stand()
